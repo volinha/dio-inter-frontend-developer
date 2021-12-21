@@ -1,2 +1,3 @@
-# dio-inter-frontend-developer
-Repositório com os arquivos e exercícios realizados durante o bootcamp Inter Frontend Developer
+# Anotações
+
+Pasta contendo as principais anotações no decorrer do bootcamp.
