@@ -1,3 +1,15 @@
+Características:
+
+- Alto nível
+- Interpretada estruturada
+- Tipagem dinâmica fraca:
+-- A declaração dos tipos dos dados acontece de forma dinâmica.
+- Multiparadigma
+
+Para que serve:
+
+- Criação de scripts dinâmicos
+
 Usabilidade:
 
 - // Comentar linha
@@ -6,6 +18,65 @@ Usabilidade:
 - nodejs para execução dos códigos
 - .preventDefault() para evitar o comportamento padrão de elementos
 
-Legibilidade:
+Legibilidade/Boas práticas:
 
 - Criar constantes com letras MAIÚSCULAS
+- Externar os scripts da página (carregar o script ao final do body)
+
+Frameworks e Bibliotecas (principais):
+
+- VueJS
+- Angular
+- React
+- jQuery
+
+- Escopo:
+
+global: decalarada fora de qualquer bloco, visível em todo o código
+local: declarada dentro de um bloco, pode estar visível ou não
+
+- Declaração de Variáveis
+
+var: escopo global e local, pode ter valor alterado 
+let: escopo local de bloco, pode ter valor alterado
+
+var e let se não declarar valor retorna null;
+
+const: escopo local de bloco, somente leitura e precisa de valor inicial
+
+Regras de variáveis:
+
+- Iniciar com letras, underscore _ ou cifrão $; Não com número;
+- Não utilizar espaços (camelCase ou snake_case)
+- Não utilizar palavras reservadas;
+- Declarar variáveis no topo do bloco de código;
+
+Atribuições:
+
+- = é sinal de atribuição, não comparação
+- == para comparação (somente valor)
+- === comparação identica (tipo e valor)
+
+Operadores aritméticos:
+
++ adição
+- subtração
+* multiplicação
+/ divisão real
+% divisão inteira
+** potenciação
+
+Comparativos:
+
+> maior que
+< menor que
+>= maior igual a
+<= menor igual a
+!= diferente (valor)
+!== diferente (tipo e valor)
+
+Lógicos:
+
+&& - "e" - considera que os todos tenham o mesmo valor verdadeiro (booleano)
+|| - "ou" - considera se um deles é verdadeiro
+! - "não" - inverte o valor (true -> false ou false -> true)
