@@ -4,6 +4,7 @@ Usabilidade:
 - /* Comentar várias linhas */
 - console.log() para retornar os dados no console para debug
 - nodejs para execução dos códigos
+- .preventDefault() para evitar o comportamento padrão de elementos
 
 Legibilidade:
 
