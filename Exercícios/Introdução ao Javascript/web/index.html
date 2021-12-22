@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="assets/js/scripts.js"></script>
-    <title>Web + JS</title>
+    <title>Contador</title>
 </head>
 <body>
-    <h1>Ei, sou um h1!</h1>
+    <h1>Hey, mundo!</h1>
+    <p>Este é um contador simples!</p>
+    <p>Aperte nos botões para alterar!</p>
+    <div id="counter">
+        <button name="subtrair" onClick="decrementa()">-</button>
+        <span id="currentNumber">0</span>
+        <button name="adicionar" onClick="incrementa()">+</button>
+    </div>
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>

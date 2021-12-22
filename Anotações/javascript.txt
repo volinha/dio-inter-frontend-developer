@@ -1,0 +1,10 @@
+Usabilidade:
+
+- // Comentar linha
+- /* Comentar várias linhas */
+- console.log() para retornar os dados no console para debug
+- nodejs para execução dos códigos
+
+Legibilidade:
+
+- Criar constantes com letras MAIÚSCULAS
