@@ -19,8 +19,7 @@ function verificaPalindromo2(string) {
     return true;
 }
 
-//extra - verificando strings com espaços e caracteres
-//ainda não desenvolvido o regex para caracteres acentuados
+//extra - verificando strings com espaços e caracteres especiais
 
 function verificaPalindromo3(string) {
     if(!string) return "String inválida!";
