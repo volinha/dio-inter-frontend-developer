@@ -354,3 +354,48 @@ Métodos:
 
     meuSet.delete(1);
 ```
+
+### Set vs Array:
+
+- Possui valores únicos;
+- Em vez da propriedade `length`, o numero de registros é consultado pela propriedade `size`;
+- Não possui os métodos `map`, `filter`, `reduce`, etc.
+
+## Debbuging e Error Handling
+
+### ECMAScript Error
+
+Erro em tempo de execução.
+
+####Composto por:
+
+- Mensagem
+- Nome
+- Linha
+- Call Stack
+
+### DOMException
+
+Erros relacionados ao DOM (Document Object Model)
+
+## Tratamento de erros
+
+### Throw
+
+Retorna o erro detalhado, diferente da função `return`.
+
+### Try... catch
+
+Ele verifica algum erro dentro do `try` e o retorna no `catch` e pode ser tratado internamente.
+
+#### Finally
+
+Um trecho que executa após do try catch de qualquer maneira (não é obrigatório).
+
+## Manipulação de objeto de Error
+
+```bash
+    new Error(message, fileName, lineNumber)    // todos parametros são opcionais
+    const MeuErro = new Error('Mensagem Inválida');
+    throw MeuErro;
+```
