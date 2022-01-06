@@ -95,3 +95,262 @@ Manipulação:
 - indexOf() -> retorna o índice de um valor;
 - splice() -> remove ou substiitui um item pelo índice;
 - slice() -> retorna uma parte de um array existente;
+
+Função:
+
+# Definição:
+
+function nome(parametros){
+    // instruções
+}
+
+- Variáveis criadas na função só são acessadas pela função
+- Return para a execução da função
+
+## Função Anônima
+
+Armazenada em uma variável
+
+const soma = function (a,b) {
+    return a + b;
+}
+
+## Função Autoinvocável (IIFE)
+
+Uma função anônima entre parênteses, seguida por outro par de parênteses que representa sua chamada.
+
+(
+    function() {
+        let name = "Digital Innovation One"
+        return name;
+    }
+)();
+
+## Callbacks
+
+Uma função passada de argumento para outra.
+
+const calc = function(operacao, numero1, numero2) {
+    return operacao(numero1, numero2);
+}
+
+const soma = function(numero1, numero2) {
+    return numero1 + numero2;
+}
+
+const subtracao = function(numero1, numero2) {
+    return numero1 - numero2;
+}
+
+const resultadoSoma = calc(soma, 1, 2);
+const resultadoSub = calc(sub, 1, 2);
+
+console.log(resultadoSoma + " " + resultadoSub); // -> 3 -1
+
+## Arguments
+
+Array com todos os parâmetros passados quando a função foi invocada.
+
+Pode ser criada uma função para mostrar os argumentos:
+
+function showArgs() {
+    return arguments;
+}
+
+function findMax() {
+    let max = -Infinity;
+
+    for(let i = 0, i < arguments.length; i++) {
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+    }
+    return max;
+}
+
+console.log(findMax(1, 4, 3, 8, 85, 7, 60)) // -> 85
+
+## Arrays
+
+Spread: lidar separadamente com elementos
+
+function soma(x, y, z) {
+    return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+console.log(sum(...numbers)); // -> 6
+
+A parte do array se torna um elemento independente.
+
+Rest: combina os elementos em um array.
+
+function confereTamanho(...args) {
+    console.log(args.length)
+}
+
+confereTamanho() // -> 0
+confereTamanho(1, 2) // -> 2
+confereTamanho(3, 4, 5) // -> 3
+
+O elemento antes independente se torna parte de um array.
+
+## Objetos
+
+- Destructuring:
+
+Entre chaves podemos filtrar somente os dados que interessam em um objeto.
+
+function userId({id}) {
+    return id;
+}
+
+function getFullName({fullName: {firstName: first, lastName: last}}){
+    return `${first} ${last}`
+}
+
+userId(user)
+getFullName(user)
+
+Retorna o dado correspondente a `id` dentro de `user` e os parâmetros firstName e lastName.
+
+## This
+
+Referência de contexto.
+
+``` bash
+    const pessoa = {
+        firstName: "Vinícius",
+        lastName: "Fernandes",
+        id: 1,
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        },
+        getId: function() {
+            return this.id;
+        }
+    }
+
+    pessoa.fullName(); // -> "Vinícius Fernandes"
+    pessoa.getId(); // -> 1
+```
+
+Ou seja, neste caso, `this` referencia ao objeto `pessoa`.
+
+| Contexto              | Referência                               |
+|-----------------------|------------------------------------------|
+| Em um objeto (método) | Próprio objeto                           |
+| Sozinha               | Objeto global (em navegadores, a window) |
+| Função                | Objeto global                            |
+| Evento                | Elemento que recebeu o evento            |
+
+## Arrow functions
+
+Representada por `=>`
+
+Os 3 códigos a seguir tem exatamente a mesma saída.
+
+``` bash
+    const helloWorld = function(){
+        return "Hello World";
+    }
+```
+
+``` bash
+    const helloWorld = () => {
+        return "Hello World";
+    }
+```
+
+``` bash
+    const helloWorld = () => return "Hello World";
+```
+
+Com uma linha, pode-se dispensar as chaves e o return. Com apenas um parâmetro pode-se dispensar os parênteses.
+
+Arrow function NÃO faz hoisting (chamar a variável antes da função)!
+
+``` bash
+    soma(2, 4);
+
+    function soma(a, b) {
+        return a + b;
+    }
+
+    // -> 6
+```
+
+``` bash
+    soma(2, 4);
+
+    const soma = (a, b) => a + b;
+
+    // -> Uncaught ReferenceError: Cannot access 'soma' before initialization at <anonymous>:1:1
+```
+
+- `this` será sempre o objeto global. Métodos para modificar o valor não funcionarão.
+- Não existe o objeto `arguments`
+- O construtor (ex: new objeto()) não pode ser utilizado.
+
+## Map
+
+Declaração básica:
+
+```bash
+    const meuMap = new Map();
+```
+
+Características:
+
+- Uma coleção de arrays no formato [chave, valor];
+- Pode ser iterado através de loop for...of
+
+Métodos:
+
+```bash
+    const meuMapa = new Map();
+    meuMapa.set('banana', 'fruta'); // -> Map(1) {"banana" => "fruta"}
+
+    meuMapa.get(banana);            // -> "fruta"
+
+    meuMapa.delete("banana");       // -> true
+    
+    meuMapa.get("banana");          // -> undefined
+```
+
+### Map vs Objeto
+
+- Maps podem ter chaves de qualquer tipo (objetos sempre tem chaves na forma de strings);
+- Maps possuem a propriedade `length`;
+- Maps são mais fáceis de iterar;
+- Utilizado quando o valor das chaves é desconhecido;
+- Os valores tem o mesmo tipo;
+
+## Set
+
+São estruturas que armazenam apenas valores únicos.
+
+Declaração básica:
+
+```bash
+    const meuArray = [0, 1, 1, 5, 6, 2, 6, 7, 3];
+
+    const meuSet = new Set(meuArray);
+
+    console.log(meuSet) // -> Set(7) { 0, 1, 5, 6, 2, 7, 3 }
+```
+
+Métodos:
+
+```bash
+    const meuSet = new Set();
+
+    meuSet.add(1);
+    meuSet.add(5);
+
+    meuSet.has(1);                  // -> true
+    meuSet.has(3);                  // -> false
+
+    meuSet.delete(1);
+```

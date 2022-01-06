@@ -29,3 +29,7 @@ const pessoas = [
 
 console.log(calculaIdade.call(pessoas[0], 20));     // -> Daqui a 20 anos, Arthur terá 44 anos de idade.
 console.log(calculaIdade.apply(pessoas[3], [5]));   // -> Daqui a 5 anos, Diana terá 31 anos de idade.
+
+const meuArray = [0, 5, 6, 1, 2, 6, 7, 3];
+const meuSet = new Set(meuArray);
+console.log(meuSet)
