@@ -399,3 +399,117 @@ Um trecho que executa após do try catch de qualquer maneira (não é obrigatór
     const MeuErro = new Error('Mensagem Inválida');
     throw MeuErro;
 ```
+
+## Assincronicidade
+
+"Que não ocorre ou não se efetiva ao mesmo tempo."
+
+Por padrão, o Javascript roda de maneira síncrona.
+
+### Promises
+
+Objeto de processamento assíncrono.
+Basicamente uma promessa de resolução que não mostra o valor, mas que algum tempo depois retorna se foi resolvida ou rejeitada.
+
+- Estrutura básica:
+
+```bash
+    const minhaPromise = newPromise((resolve, reject) => {
+        window.setTimeout(() => {
+            resolve(console.log('Resolvida'));
+        }, 2000)
+    });
+```
+
+As chamadas podem ser encadeadas através de `await`, como no exemplo:
+
+```bash
+    async const minhaPromise = newPromise((resolve, reject) => {
+        window.setTimeout(() => {
+            resolve(console.log('Resolvida'));
+        }, 2000)
+    });
+
+    await myPromise
+        .then((result) => result + ' passando pelo then')
+        .then((result) => result + ' e acabou')
+        .catch((err) => console.log(err.message));
+
+        // Aguarda 2 segundos e depois retorna
+        // -> "Resolvida passando pelo then e acabou"
+```
+
+###Async/Await
+
+Necessita de palavras-chave para resolver.
+
+Para que se use o `await` é necessário especificar que a função é assíncrona com a palavra-chave `async`.
+
+```bash
+    async function resolvePromise(){
+        const minhaPromise = new Promise((resolve, reject) => {
+            window.setTimtout(() => {
+                resolve('Resolvida');
+            }, 3000);
+        });
+
+        const resolved = await minhaPromise
+            .then((result) => result + ' passando pelo then')
+            .then((result) => result + ' e agora terminou!')
+            .catch((err) => console.log(err.message));
+
+            return resolved;
+    }
+```
+
+## APIs (Application Programming Interface)
+
+Uma API é uma forma de intermediar resultados do back-end com o que é apresentado no front-end, podem ser acessadas através de URLs.
+
+Uma API por exemplo, é o intermediário entre os dados de dentro de um banco de dados e a comunicação/uso destes dados em aplicações Web, mobile ou até outras APIs.
+
+### JSON (JavaScript Object Notation)
+
+Formato mais comum de retorno de dados de uma API, devendo ser esses dados tratados para uso, ou os dados atuais formatados neste para o envio em APIs.
+
+### Fetch
+
+Método para consumir os dados de uma API. O código abaixo retorna uma Promise, por isso é necessário utilizar `async/await`.
+
+Exemplo:
+
+```bash
+    fetch(url, options)
+    .then(response => response.json())
+    .then(json => console.log(json))
+```
+É necessário sempre converter a resposta para JSON através do `.json()`.
+
+#### Operações em banco (POST, GET, PUT, DELETE, etc...)
+
+- POST
+
+```bash
+    fetch('https://endereco-da-api.com/', {
+        method: 'POST',
+        cache: 'no-cache',
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+    // -> Promise
+```
+
+- GET
+
+```bash
+    fetch('https://endereco-da-api.com/', {
+        method: 'GET',
+        cache: 'no-cache',
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+    // -> Promise
+```
