@@ -70,10 +70,10 @@ Operadores aritméticos:
 
 Comparativos:
 
-> maior que
-< menor que
->= maior igual a
-<= menor igual a
+- > maior que
+- < menor que
+- >= maior igual a
+- <= menor igual a
 != diferente (valor)
 !== diferente (tipo e valor)
 
@@ -121,17 +121,21 @@ const soma = function (a,b) {
 
 Uma função anônima entre parênteses, seguida por outro par de parênteses que representa sua chamada.
 
-(
+```js
+    (
     function() {
         let name = "Digital Innovation One"
         return name;
     }
-)();
+    )();
+```
+
 
 ## Callbacks
 
 Uma função passada de argumento para outra.
 
+```js
 const calc = function(operacao, numero1, numero2) {
     return operacao(numero1, numero2);
 }
@@ -148,6 +152,8 @@ const resultadoSoma = calc(soma, 1, 2);
 const resultadoSub = calc(sub, 1, 2);
 
 console.log(resultadoSoma + " " + resultadoSub); // -> 3 -1
+```
+
 
 ## Arguments
 
@@ -204,6 +210,7 @@ O elemento antes independente se torna parte de um array.
 
 Entre chaves podemos filtrar somente os dados que interessam em um objeto.
 
+````js
 function userId({id}) {
     return id;
 }
@@ -214,6 +221,7 @@ function getFullName({fullName: {firstName: first, lastName: last}}){
 
 userId(user)
 getFullName(user)
+````
 
 Retorna o dado correspondente a `id` dentro de `user` e os parâmetros firstName e lastName.
 
@@ -221,7 +229,7 @@ Retorna o dado correspondente a `id` dentro de `user` e os parâmetros firstName
 
 Referência de contexto.
 
-``` bash
+``` js
     const pessoa = {
         firstName: "Vinícius",
         lastName: "Fernandes",
@@ -253,19 +261,19 @@ Representada por `=>`
 
 Os 3 códigos a seguir tem exatamente a mesma saída.
 
-``` bash
+``` js
     const helloWorld = function(){
         return "Hello World";
     }
 ```
 
-``` bash
+``` js
     const helloWorld = () => {
         return "Hello World";
     }
 ```
 
-``` bash
+``` js
     const helloWorld = () => return "Hello World";
 ```
 
@@ -273,7 +281,7 @@ Com uma linha, pode-se dispensar as chaves e o return. Com apenas um parâmetro 
 
 Arrow function NÃO faz hoisting (chamar a variável antes da função)!
 
-``` bash
+``` js
     soma(2, 4);
 
     function soma(a, b) {
@@ -283,7 +291,7 @@ Arrow function NÃO faz hoisting (chamar a variável antes da função)!
     // -> 6
 ```
 
-``` bash
+``` js
     soma(2, 4);
 
     const soma = (a, b) => a + b;
@@ -299,7 +307,7 @@ Arrow function NÃO faz hoisting (chamar a variável antes da função)!
 
 Declaração básica:
 
-```bash
+```js
     const meuMap = new Map();
 ```
 
@@ -310,7 +318,7 @@ Características:
 
 Métodos:
 
-```bash
+```js
     const meuMapa = new Map();
     meuMapa.set('banana', 'fruta'); // -> Map(1) {"banana" => "fruta"}
 
@@ -335,7 +343,7 @@ São estruturas que armazenam apenas valores únicos.
 
 Declaração básica:
 
-```bash
+```js
     const meuArray = [0, 1, 1, 5, 6, 2, 6, 7, 3];
 
     const meuSet = new Set(meuArray);
@@ -345,7 +353,7 @@ Declaração básica:
 
 Métodos:
 
-```bash
+```js
     const meuSet = new Set();
 
     meuSet.add(1);
@@ -396,7 +404,7 @@ Um trecho que executa após do try catch de qualquer maneira (não é obrigatór
 
 ## Manipulação de objeto de Error
 
-```bash
+```js
     new Error(message, fileName, lineNumber)    // todos parametros são opcionais
     const MeuErro = new Error('Mensagem Inválida');
     throw MeuErro;
@@ -415,7 +423,7 @@ Basicamente uma promessa de resolução que não mostra o valor, mas que algum t
 
 - Estrutura básica:
 
-```bash
+```js
     const minhaPromise = newPromise((resolve, reject) => {
         window.setTimeout(() => {
             resolve(console.log('Resolvida'));
@@ -425,7 +433,7 @@ Basicamente uma promessa de resolução que não mostra o valor, mas que algum t
 
 As chamadas podem ser encadeadas através de `await`, como no exemplo:
 
-```bash
+```js
     async const minhaPromise = newPromise((resolve, reject) => {
         window.setTimeout(() => {
             resolve(console.log('Resolvida'));
@@ -447,7 +455,7 @@ Necessita de palavras-chave para resolver.
 
 Para que se use o `await` é necessário especificar que a função é assíncrona com a palavra-chave `async`.
 
-```bash
+```js
     async function resolvePromise(){
         const minhaPromise = new Promise((resolve, reject) => {
             window.setTimtout(() => {
@@ -480,7 +488,7 @@ Método para consumir os dados de uma API. O código abaixo retorna uma Promise,
 
 Exemplo:
 
-```bash
+```js
     fetch(url, options)
     .then(response => response.json())
     .then(json => console.log(json))
@@ -491,7 +499,7 @@ Exemplo:
 
 - POST
 
-```bash
+```js
     fetch('https://endereco-da-api.com/', {
         method: 'POST',
         cache: 'no-cache',
@@ -505,7 +513,7 @@ Exemplo:
 
 - GET
 
-```bash
+```js
     fetch('https://endereco-da-api.com/', {
         method: 'GET',
         cache: 'no-cache',
@@ -553,4 +561,201 @@ Todos os objetos Javascript herdam propriedades e métodos de um `prototype`. O 
 ## Classes
 
 Classes no JavaScript não existem nativamente, são uma "Syntatic sugar", que é uma sintaxe feita para facilitar a escrita. Então as classes são na verdade objetos e a herança se dá por protótipos.
-Todas as 
+
+## Map
+
+Cria um novo array a partir de uma função de mapeamento, sem modificar o array original, realizando as operações em ordem.
+
+### Sintaxe
+
+```js
+    array.map(callback, thisArg) 
+    // callback: função executada em cada elemento
+    // thisArg(opcional): valor de `this` dentro da função de callback
+```
+
+```js
+    callback(item, index, array)
+```
+
+## Map vs forEach
+
+```js
+    // Utilizando map
+
+    const array = [1, 2, 3, 4, 5];
+    array.map((item) => item * 2);      // retorna [2, 4, 6, 8, 10];
+
+    // Utilizando forEach
+
+    const array = [1, 2, 3, 4, 5];
+    array.forEach((item) => item * 2);  // retorna undefined; necessário colocar função associada a alguma constante
+```
+
+## Filter
+
+É como se colocasse o array dentro de um filtro e somente os que atendem a condição vão para o novo array. Também não altera o array original.
+
+### Sintaxe
+
+```js
+    array.filter(callback, thisArg)
+```
+
+- `callback`: função a ser executada em cada elemento
+- `thisArg` (opcional): valor de `this` dentro da função de callback 
+
+### Exemplo
+
+```js
+    const frutas = ['maçã fuji', 'maçã verde', 'laranja', 'abacaxi'];
+    frutas.filter((fruta) => fruta.includes('maçã'))
+
+    // retorna: ['maçã fuji', 'maçã verde'];
+```
+
+## Reduce
+
+Executa uma função em todos elementos do array, retornando um valor único.
+
+### Sintaxe
+
+```js
+    array.reduce(callbackFn, initialValue)
+```
+
+- `callbackFn`: função a ser executada a partir do acumulador
+- `initialValue` (opcional): valor sobre o qual o retorno final irá atuar
+
+```js
+    const callbackFn = function(accumulator, currentValue, index, array){
+        // ação
+    }
+
+    array.reduce(callbackFn, initialValue)
+```
+
+## DOM (Domain Object Model)
+
+O DOM HTML é o padrão de como acessar e modificar os elementos HTML de uma página. Dentro dos navegadores possuem o elemento documento e possuem uma árvore de hierarquias dos elementos, com diversos nós.
+
+### DOM vs BOM (Browser Object Model)
+
+É a árvore de dependências dentro de uma janela do navegador, contendo por exemplo, `document`, `history`, `location`, etc.
+
+### Métodos de Manipulação do DOM
+
+- Referenciar elemento pela ID:
+
+```js
+    // <h1 id='id-do-elemento'>Elemento</h1>
+    document.getElementById('id-do-elemento');
+```
+
+- Referenciar elemento pela tag:
+
+```js
+    // <h1>Elemento</h1>
+    document.getElementByTagName('h1');
+```
+
+- Referenciar elemento pela classe:
+
+```js
+    // <h1 class="classe-do-elemento">Elemento</h1>
+    document.getElementByClassName('classe-do-elemento');
+```
+
+- Referenciar elemento pela classe:
+
+```js
+    // <div class="classeA classeB">
+    //      <ul>
+    //          <li class="opcao">op 1</li>
+    //          <li class="opcao">op 2</li>
+    //          <li class="opcao">op 3</li>
+    //      </ul>
+    // </div>
+    
+    document.querySelectorAll('.classeA .classeB');
+    document.querySelectorAll('li .opcao');
+```
+
+- Adicionar e deletar
+
+| Método                          | Descrição                  |
+|---------------------------------|----------------------------|
+| document.createElement(element) | Cria um novo elemento HTML |
+| document.removeChild(element)   | Remove um elemento         |
+| document.appendChild(element)   | Adiciona um elemento       |
+| document.replaceChild(new, old) | Modifica um elemento       |
+
+### Classes
+
+```html
+    <div id="meu-elemento" class="classe">
+        <!--código-->
+    </div>
+```
+
+```js
+    const meuElemento = document.getElementById("meu-elemento");
+
+    meuElemento.classList.add("estilo-novo");
+    // Adiciona a classe "estilo novo"
+
+    meuElemento.classList.remove("classe");
+    // Remove a classe "classe"
+
+    meuElemento.classList.toggle("dark-mode");
+    // Adiciona a classe "dark-mode" caso ela não faça parte da lista e remove caso faça
+```
+
+### CSS
+
+Para acessar o CSS do elemento diretamente:
+
+```js
+    document.getElementsByTagName("p").style.color = "violet";
+```
+
+### Eventos
+
+Mouse:
+- `mouseover`: Quando o mouse está em cima do elemento.
+- `mouseout`: Quando o mouse sai de cima do elemento.
+
+Clique:
+- `click`: Quando é dado um clique simples no elemento.
+- `dbclick`: Quando é dado um clique duplo no elemento.
+
+Atualização:
+- `Change`: Quando um valor de um campo mudar.
+- `load`: Quando o elemento carregar.
+
+#### Acionando Eventos
+
+Através do Event Listener, cria um evento no momento que o usuário realizar dada ação:
+
+```js
+    const botao = document.getElementById("botao");
+    botao.addEventListener("click", funcao);
+```
+
+Especificar a função a ser chamada diretamente no elemento HTML:
+
+```html
+    <html>
+        <body>
+
+            <h1 onClick="mudaTexto(this)">Clique aqui!</h1> <!--diretamente no HTML se coloca o prefixo 'on'-->
+
+            <script>
+                function mudaTexto(id){
+                    id.innerHTML = "Mudou!";
+                }
+            </script>
+
+        </body>
+    </html>
+```
