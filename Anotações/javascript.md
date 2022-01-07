@@ -1,3 +1,5 @@
+# JavaScript
+
 Características:
 
 - Alto nível
@@ -513,3 +515,42 @@ Exemplo:
 
     // -> Promise
 ```
+
+## Orientação a Objetos
+
+### Paradigmas
+
+| Imperativo             | Declarativo          |
+|------------------------|----------------------|
+| Foco em como resolver  | O que será feito     |
+| Procedural             | Lógico               |
+| Orientada a Objetos    | Funcional (Dataflow) |
+| Processamento Paralelo | Database             |
+
+Os programas são "objetos" que possuem várias propriedades, como por exemplo, para uma pessoa, sua idade, altura e nome seriam propriedades.
+
+Os principais pilares são:
+
+#### Abstração:
+
+Processo mental para isolar um aspecto determinado de um estado de coisas relativamente complexo para simplificar sua avaliação, classificação ou permitir a comunicação deste.
+
+#### Herança:
+
+O objeto filho herda propriedades e métodos do objeto pai;
+
+#### Polimorfismo:
+
+Objetos que possuem a mesma classificação mas se comportam diferentes quando seus métodos são invocados.
+#### Encapsulamento:
+
+Cada classe tem propriedades e métodos independentes do restante do código. Altera internamente sem influenciar o restante do código.
+
+## Protótipos
+
+Todos os objetos Javascript herdam propriedades e métodos de um `prototype`. O objeto `Object.prototype` está no topo desta cadeia. Contém todos os métodos no objeto em questão.
+
+## Classes
+
+Classes no JavaScript não existem nativamente, são uma "Syntatic sugar", que é uma sintaxe feita para facilitar a escrita. Então as classes são na verdade objetos e a herança se dá por protótipos.
+Todas as 
