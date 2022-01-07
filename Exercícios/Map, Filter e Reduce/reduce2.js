@@ -34,4 +34,4 @@ const subtraiSaldo = function (lista,saldo) {
     }, saldo)
 };
 
-console.log(subtraiSaldo(listaDePrecos,saldo))
+console.log(subtraiSaldo(listaDePrecos,saldo));
